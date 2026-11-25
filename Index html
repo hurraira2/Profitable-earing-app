@@ -1,0 +1,322 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Profitable App</title>
+
+<style>
+*{box-sizing:border-box;margin:0;padding:0}
+body{
+  font-family:Arial,sans-serif;
+  background:#f4f0ff;
+  color:#30265f;
+  padding-bottom:90px
+}
+header{
+  background:linear-gradient(135deg,#7358e8,#4524bd);
+  color:white;padding:25px 20px;
+  border-radius:0 0 30px 30px;
+  display:flex;justify-content:space-between;
+  align-items:center
+}
+header h1{font-size:22px}
+header button{
+  background:#ffffff20;color:white;
+  border:0;padding:10px;border-radius:12px
+}
+.page{display:none;padding:18px}
+.page.active{display:block}
+.profile{
+  display:flex;align-items:center;gap:15px;
+  background:white;padding:20px;
+  border-radius:22px;margin:20px 0
+}
+.avatar{
+  width:65px;height:65px;border-radius:50%;
+  background:#eee8ff;display:grid;
+  place-items:center;font-size:30px
+}
+.profile h2{margin:6px 0;color:#5438c4}
+.balance{
+  background:linear-gradient(135deg,#5233ca,#8c4be8);
+  color:white;border-radius:25px;padding:25px;
+  margin-bottom:25px
+}
+.balance small{color:#e2d7ff}
+.balance h2{font-size:34px;margin:15px 0}
+.balance-grid{display:flex;gap:10px;margin-top:20px}
+.balance-grid div{
+  background:#ffffff17;padding:15px;
+  border-radius:15px;flex:1
+}
+.actions{
+  display:grid;grid-template-columns:repeat(3,1fr);
+  gap:12px;margin:25px 0
+}
+.action{
+  background:white;border-radius:18px;
+  padding:18px 8px;text-align:center;
+  border:0;color:#5035bc
+}
+.action .icon{font-size:28px;display:block;margin-bottom:10px}
+.section-title{margin:25px 0 15px}
+.cards{
+  display:grid;grid-template-columns:1fr 1fr;
+  gap:14px
+}
+.card{
+  background:white;padding:18px;
+  border-radius:20px;box-shadow:0 4px 15px #34208008
+}
+.card .icon{font-size:27px;margin-bottom:12px}
+.card h3{font-size:16px;margin-bottom:8px}
+.card p{font-size:13px;color:#777;margin-bottom:10px}
+.tag{
+  background:#eee9ff;color:#5636c4;
+  border-radius:20px;padding:6px 10px;
+  display:inline-block;font-size:12px
+}
+.plan{margin-bottom:15px}
+.plan button,.primary{
+  background:#5c3bd0;color:white;border:0;
+  border-radius:12px;padding:12px;
+  width:100%;margin-top:12px
+}
+.nav{
+  position:fixed;bottom:10px;left:10px;right:10px;
+  display:flex;justify-content:space-around;
+  background:white;padding:12px 3px;
+  border-radius:25px;box-shadow:0 5px 25px #0001
+}
+.nav button{
+  background:none;border:0;color:#888;
+  font-size:11px
+}
+.nav button.active{color:#5936ce;font-weight:bold}
+.nav span{display:block;font-size:22px;margin-bottom:5px}
+.notice{
+  background:#fff;padding:15px;
+  border-radius:15px;margin:15px 0;
+  font-size:13px;color:#6c6191
+}
+@media(min-width:700px){
+  .page{max-width:650px;margin:auto}
+  .cards{grid-template-columns:repeat(3,1fr)}
+}
+</style>
+</head>
+
+<body>
+
+<header>
+  <h1>Profitable App</h1>
+  <button onclick="openPage('home')">⌂ Home</button>
+</header>
+
+<!-- HOME -->
+<section id="home" class="page active">
+
+  <div class="profile">
+    <div class="avatar">👤</div>
+    <div>
+      <small>Welcome back</small>
+      <h2>Member</h2>
+      <span class="tag">Basic Account</span>
+    </div>
+  </div>
+
+  <div class="balance">
+    <small>MY SERVICE ACCOUNT</small>
+    <h2>Welcome!</h2>
+    <p>Explore our digital services</p>
+    <div class="balance-grid">
+      <div>
+        <small>ACCOUNT STATUS</small>
+        <h3>Active</h3>
+      </div>
+      <div>
+        <small>MEMBERSHIP</small>
+        <h3>Basic</h3>
+      </div>
+    </div>
+  </div>
+
+  <div class="actions">
+    <button class="action" onclick="openPage('services')">
+      <span class="icon">🛠️</span>Services
+    </button>
+    <button class="action" onclick="openPage('membership')">
+      <span class="icon">⭐</span>Membership
+    </button>
+    <button class="action" onclick="openPage('support')">
+      <span class="icon">💬</span>Support
+    </button>
+  </div>
+
+  <h2 class="section-title">Our Services</h2>
+  <div class="cards">
+    <div class="card" onclick="openPage('services')">
+      <div class="icon">🌐</div>
+      <h3>Web Tools</h3>
+      <p>Explore online tools</p>
+      <span class="tag">Explore</span>
+    </div>
+    <div class="card" onclick="openPage('services')">
+      <div class="icon">📚</div>
+      <h3>Learning</h3>
+      <p>Educational resources</p>
+      <span class="tag">Explore</span>
+    </div>
+    <div class="card" onclick="openPage('membership')">
+      <div class="icon">✨</div>
+      <h3>Premium</h3>
+      <p>Membership options</p>
+      <span class="tag">View Plans</span>
+    </div>
+    <div class="card" onclick="openPage('profile')">
+      <div class="icon">👤</div>
+      <h3>My Profile</h3>
+      <p>Account information</p>
+      <span class="tag">Open</span>
+    </div>
+  </div>
+
+  <div class="notice">
+    Profitable App — Digital tools and educational services platform.
+  </div>
+</section>
+
+<!-- SERVICES -->
+<section id="services" class="page">
+  <h2 class="section-title">Digital Services</h2>
+  <div class="cards">
+    <div class="card">
+      <div class="icon">🌐</div>
+      <h3>Website Tools</h3>
+      <p>Online website resources</p>
+      <button class="primary" onclick="alert('Service details coming soon')">View Details</button>
+    </div>
+    <div class="card">
+      <div class="icon">🎨</div>
+      <h3>Design Tools</h3>
+      <p>Creative design resources</p>
+      <button class="primary" onclick="alert('Service details coming soon')">View Details</button>
+    </div>
+    <div class="card">
+      <div class="icon">📖</div>
+      <h3>Learning Library</h3>
+      <p>Educational content</p>
+      <button class="primary" onclick="alert('Service details coming soon')">View Details</button>
+    </div>
+    <div class="card">
+      <div class="icon">📱</div>
+      <h3>Mobile Tools</h3>
+      <p>Useful mobile resources</p>
+      <button class="primary" onclick="alert('Service details coming soon')">View Details</button>
+    </div>
+  </div>
+</section>
+
+<!-- MEMBERSHIP -->
+<section id="membership" class="page">
+  <h2 class="section-title">Membership</h2>
+
+  <div class="card plan">
+    <h3>Basic</h3>
+    <p>Access to introductory services</p>
+    <span class="tag">Free</span>
+    <button onclick="alert('Basic membership selected')">Select</button>
+  </div>
+
+  <div class="card plan">
+    <h3>Standard</h3>
+    <p>Additional digital features</p>
+    <span class="tag">Details available soon</span>
+    <button onclick="alert('Membership information only')">View Details</button>
+  </div>
+
+  <div class="card plan">
+    <h3>Premium</h3>
+    <p>Expanded educational resources</p>
+    <span class="tag">Details available soon</span>
+    <button onclick="alert('Membership information only')">View Details</button>
+  </div>
+
+  <div class="notice">
+    Memberships describe digital services only. No investment or profit promises.
+  </div>
+</section>
+
+<!-- TEAM -->
+<section id="team" class="page">
+  <h2 class="section-title">Community</h2>
+  <div class="card">
+    <div class="icon">👥</div>
+    <h3>Our Community</h3>
+    <p>Connect with other learners and digital tool users.</p>
+  </div>
+</section>
+
+<!-- SUPPORT -->
+<section id="support" class="page">
+  <h2 class="section-title">Support</h2>
+  <div class="card">
+    <h3>How can we help?</h3>
+    <p>For questions about digital services, contact our support team.</p>
+    <button class="primary" onclick="alert('Support contact will be added')">
+      Contact Support
+    </button>
+  </div>
+</section>
+
+<!-- PROFILE -->
+<section id="profile" class="page">
+  <h2 class="section-title">My Profile</h2>
+  <div class="card">
+    <div class="avatar">👤</div>
+    <h3>Member Account</h3>
+    <p>Account information</p>
+    <button class="primary" onclick="alert('Profile settings coming soon')">
+      Account Settings
+    </button>
+  </div>
+</section>
+
+<nav class="nav">
+  <button class="active" onclick="openPage('home',this)">
+    <span>⌂</span>Home
+  </button>
+  <button onclick="openPage('services',this)">
+    <span>🛠️</span>Services
+  </button>
+  <button onclick="openPage('membership',this)">
+    <span>⭐</span>Plans
+  </button>
+  <button onclick="openPage('team',this)">
+    <span>👥</span>Community
+  </button>
+  <button onclick="openPage('profile',this)">
+    <span>👤</span>Profile
+  </button>
+</nav>
+
+<script>
+function openPage(id,button){
+  document.querySelectorAll('.page').forEach(page=>{
+    page.classList.remove('active');
+  });
+  document.getElementById(id).classList.add('active');
+
+  document.querySelectorAll('.nav button').forEach(btn=>{
+    btn.classList.remove('active');
+  });
+
+  if(button) button.classList.add('active');
+  window.scrollTo({top:0,behavior:'smooth'});
+}
+</script>
+
+</body>
+</html>
